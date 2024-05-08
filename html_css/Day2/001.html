@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+<!--보통 로그인은 POST로 처리-->
+    <form action="" method="get">
+        <input type="text" name="id">
+        <input type="password" name="pw">
+        <button>로그인</button>
+    </form>
+    <!--이렇게 사용-->
+    <form action="" method="get">
+        <input type="text" name="q">
+        <button>검색</button>
+    </form>
+    <!--
+        로그인 버튼을 누르니 아래와 같이 주소창에 나타남
+        htmlDay1/001.html?id=aaa&pw=bbb
+
+        처리 절차
+        1. 로그인 버튼을 누르게 되면 브라우저에서 각각에 input의 name과 value값을 가져와서 아래 데이터를 만듭니다.
+        GET /001.html?id=aaa&pw=bbb HTTP/1.1              # 요청라인
+        key1=value1&key2=value2 양식으로 들어감
+        # 여러 정보 생략
+        host: 나 자신
+
+        2. 이 패킷을 host로 보내서 처리합니다.
+
+        3. 그런데 처리해야할 사람이 나 자신 -> 그래서 주소창에 htmlDay1/001.html?id=aaa&pw=bbb이 뜸
+
+        GET 방식의 장점과 단점
+        1. URL에 데이터가 노출되어 보안에 취약합니다. 기본적으로 도청이 가능합니다.
+
+        2. 그래서 노출이 돼도 되는 데이터들을 처리합니다.
+
+        3.노출 되어도 좋은 데이터? 공유했을 때 다른 사람도 url로 바로 접속해서 같은 결과를 볼 수 있습니다.
+
+        4. 그러나 검색 키워드를 GET으로 만드는 것이 절대적이진 않다. 보안상 정보를 감춰야 할때는 POST 사용
+    -->
+
+</body>
+</html>
