@@ -1,0 +1,317 @@
+<!--position: static-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>static</title>
+  <style>
+    div{
+      position:static;
+      color:white;
+      width: 100px;
+      height: 100px;
+    }
+    .box1{
+      background-color: green;
+    }
+
+    .box2{
+      background-color: red;
+    }
+
+    .box3{
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+<div class="box1">box1</div>
+<div class="box2">box2</div>
+<div class="box3">box3</div>
+</body>
+</html>
+
+<!--position: absolute-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>relative-absolute</title>
+  <style>
+
+    .box1{
+      position:relative;
+      top:40px;
+      background-color: green;
+      color:white;
+      width: 100px;
+      height: 100px;
+    }
+    .box2{
+      position:absolute;
+      top: 40px;
+      background-color: red;
+      color:white;
+      width: 100px;
+      height: 100px;
+    }
+    .box3{
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background-color: blue;
+      color:white;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="box3">box3</div>
+<div class="box1">box1
+  <div class="box2">
+    box2
+  </div>
+
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <style>
+    .container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin-left: 100px;
+      border: 5px solid black;
+    }
+
+    .one {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      color: white;
+    }
+
+    .one:nth-child(1) {
+      position: static;
+      background-color: red;
+    }
+
+    .one:nth-child(2) {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: green;
+    }
+
+    .one:nth-child(3) {
+      position: static;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="one">box1</div>
+  <div class="one">box2</div>
+  <div class="one">box3</div>
+</div>
+</body>
+</html>
+
+
+<!--position: fixed-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .nav {
+      font-family: 'Pacifico', cursive;
+      position: fixed;
+      padding: 10px;
+      background-color: brown;
+      color: white;
+      font-size: 28px;
+      width: 100%;
+      height: 45px;
+    }
+
+    .container {
+      margin-top: 0;
+      padding-top: 120px;
+      margin-left: 20px;
+    }
+
+    .dark-mode {
+      font-family: 'Pacifico', cursive;
+      font-size: 23px;
+      position: fixed;
+      width: 200px;
+      height: 40px;
+      background-color: brown;
+      border-radius: 7px;
+      color: white;
+      bottom: 50px;
+      right: 50px;
+      text-align:center
+    }
+  </style>
+</head>
+<body>
+<div class="nav">hello</div>
+<div class="container">
+  (lorem+br)*100
+</div>
+<div class="dark-mode">dark</div>
+</body>
+</html>
+
+<!--position: sticky-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    section {
+      height: 1000px;
+      border: 3px solid black;
+    }
+
+    h2 {
+      position: sticky;
+      top: 0px;
+      background: greenyellow;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>sticky test</h1>
+  <section>
+    <h2>오늘의 메뉴1</h2>
+    <ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto asperiores aspernatur aut, blanditiis,
+        dicta ea enim eos excepturi fugiat harum illo quibusdam repellat rerum sunt vel voluptatem. Ex, fuga?
+      </li>
+      <li>Aliquid dolore, perferendis. A aliquid culpa dolor et ex fuga fugit impedit ipsum libero nihil odio officiis
+        optio praesentium, quos repellendus sequi sint. Debitis deleniti fugit inventore natus pariatur possimus.
+      </li>
+      <li>Accusamus amet, autem cupiditate, dolores doloribus eaque eius est eveniet illo ipsum magni modi nihil obcaecati
+        porro provident quibusdam quis repellat repellendus vero voluptates. Ad ea itaque repellendus sed tenetur.
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>오늘의 메뉴2</h2>
+    <ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, labore, modi! A aliquam assumenda commodi
+        ducimus ea, fuga illo ipsam nam nostrum porro qui quod sint, tempore veniam vero voluptatem.
+      </li>
+      <li>Esse laborum nihil possimus quaerat ratione. Accusamus adipisci corporis, dolores illum impedit ipsam labore
+        maiores nisi odit, perferendis qui quibusdam recusandae repellendus, sint soluta suscipit tempore ut veniam
+        veritatis voluptate.
+      </li>
+      <li>Corporis dolorem ea exercitationem illum molestias quae ratione repellendus saepe. Aspernatur culpa, deleniti
+        deserunt excepturi harum impedit ipsam ipsum iure, laborum libero quos ratione reiciendis sapiente sit tenetur.
+        Consequatur, sint.
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>오늘의 메뉴3</h2>
+    <ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium asperiores, aut corporis culpa
+        doloribus facilis fugiat fugit ipsa iure magnam molestias neque odit perferendis, provident quod repudiandae rerum
+        velit.
+      </li>
+      <li>Aliquid architecto aspernatur beatae blanditiis, eaque eligendi eveniet fuga fugit illum molestias nihil
+        obcaecati pariatur perferendis placeat porro possimus, quod rem sequi soluta, vero? Corporis dolorem
+        exercitationem maxime nihil provident.
+      </li>
+      <li>Accusantium, architecto asperiores assumenda at atque beatae cum dicta doloribus eligendi ex harum impedit
+        inventore laboriosam libero nulla omnis optio provident quam quia reiciendis repellendus reprehenderit temporibus
+        totam voluptates voluptatibus?
+      </li>
+    </ul>
+  </section>
+</body>
+
+</html>
+
+<!--z-index-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <style>
+    div {
+      /* 같이 움직이는지 확인 */
+      /* margin: 100px; */
+      width: 800px;
+      height: 800px;
+      position: relative;
+      background-color: blanchedalmond;
+      border: 1px solid black;
+      /* 부모에 달아도 수정이 안됨 */
+       z-index: 0;
+    }
+    .parent2{
+      top: -500px;
+      z-index: 10;
+    }
+
+    img {
+      padding: 10px;
+      position: absolute;
+    }
+
+    img:nth-child(1) {
+      top: 100px;
+      left: 100px;
+      background-color: red;
+      /* 자식에게 값을 주면 부모 뒤로 감 */
+      z-index: 0;
+    }
+
+    img:nth-child(2) {
+      top: 150px;
+      left: 150px;
+      background-color: green;
+      z-index: 0;
+    }
+
+    img:nth-child(3) {
+      top: 200px;
+      left: 200px;
+      background-color: blue;
+      z-index: 0;
+    }
+
+    img.child{
+      z-index: 30;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="https://via.placeholder.com/300" alt="">
+    <img src="https://via.placeholder.com/400" alt="">
+    <img src="https://via.placeholder.com/500" alt="" class="child">
+  </div>
+  <div class="parent2">
+    <img src="https://via.placeholder.com/300" alt="">
+    <img src="https://via.placeholder.com/400" alt="">
+    <img src="https://via.placeholder.com/500" alt="">
+  </div>
+  </body>
+</html>
