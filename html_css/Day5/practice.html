@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .black{
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+        .cont-wrapper{
+            display: flex;
+            flex-grow: 1;
+        }
+        .cont-wrapper main{
+            flex-grow: 5;
+            background-color: white;
+        }
+        .cont-wrapper aside{
+            flex-grow: 1;
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <header class="black">
+        <p>header</p>
+    </header>
+    <div class="cont-wrapper">
+        <main>
+            <p>Main Content</p>
+        </main>
+        <aside>
+            <p>Sidebar</p>
+        </aside>
+    </div>
+    <footer class="black">
+        <p>footer</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 1번
+        function 안녕(파라미터){
+            console.log(파라미터);
+            console.log('hello');
+            return 100;
+        }
+
+        let 아규먼트 = 1000;
+        안녕(아규먼트);
+        console.log(안녕(아규먼트) + 안녕(아규먼트));
+
+        // 2번
+        function 안녕(){
+            console.log('hello');
+        }
+
+        안녕();
+        console.log(String(안녕()) + String(안녕()));
+
+        // 3번
+        function 안녕(){
+            console.log('hello')
+            return 10
+        }
+
+        안녕()
+        console.log(String(안녕()) + String(안녕()))
+    </script>
+</body>
+</html>
