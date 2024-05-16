@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // for (var i = 2; i < 10; i++) {
+    //     for (var j = 1; j < 10; j++) {
+    //         document.write(`${i} X ${j} = ${i*j} <br>`);
+    //     }
+    // }
+    //
+    // s = 0;
+    // for (var i = 0; i < 101; i++) {
+    //     if(i%3==0 || i%5==0){
+    //         document.write(i, '<br>');
+    //         s += i;
+    //     }
+    // }
+    // document.write(s, '<br>');
+    //
+    // function test(){
+    //     console.log('반복중입니다....');
+    //     window.requestAnimationFrame(test);
+    // }
+    //
+    // window.requestAnimationFrame(test);
+    //
+    // let input;
+    //
+    // do {
+    //     input = prompt("숫자를 입력하세요.");
+    // } while (isNaN(input));
+    //
+    // console.log("입력한 숫자는 " + input + "입니다.");
+
+    // 1부터 100까지의 숫자 중에서 모든 짝수의 합을 계산하고 출력하는 프로그램을 작성하세요.
+    let sum = 0;
+    for(let i = 1; i < 101; i+=2) {
+        sum += i
+    }
+    console.log(sum)
+
+    sum = 0;
+    for(let i = 0; i <= 100; i++){
+        if(i % 2 === 0){
+            sum += i;
+        }
+    }
+    console.log(sum);
+
+    let j = 1;
+    sum = 0;
+    while(j<=100){
+        if(j%2 === 0){
+            sum += j;
+        }
+        j++;
+    }
+    console.log(sum);
+</script>
+</body>
+</html>
