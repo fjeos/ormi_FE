@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age, count) {
+        this.name = name;
+        this.age = age;
+        this.hobby = '뮤지컬 관람';
+        this.count = count;
+    }
+    Person.prototype.again = function() {
+        console.log(++this.count);
+    }
+    const me = new Person('나', 25, 30);
+    const angel = new Person('나랑 같이 뮤지컬 봐주는 사람', 25, 0);
+    me.again();
+    angel.again();
+
+    class Person{
+        constructor(name, age, count) {
+            this.name = name;
+            this.age = age;
+            this.hobby = '뮤지컬 관람';
+            this.count = count;
+        }
+        again(count) {
+            console.log(++this.count);
+        }
+    }
+    const me = new Person('나', 25, 30);
+    const angel = new Person('나랑 같이 뮤지컬 봐주는 사람', 25, 0);
+    me.again();
+    angel.again();
+
+</script>
+</body>
+</html>

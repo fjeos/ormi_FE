@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const me = {
+        name : '한재현',
+        address : '제주도 제주시 인다 1길',
+        phoneNum : '010-8000-0000',
+        canWalk : function(){
+            console.log('재현이가 걷는다.');
+        },
+        teaching : function(student){
+            student.levelUp();
+        }
+    }
+    const ormi = {
+        level: 1,
+        levelUp : function(){
+            this.level++;
+        }
+    }
+    me.teaching(ormi);
+
+    const me = {
+        name : '나',
+        age : 25,
+        hobby : '뮤지컬 관람',
+        count : 30,
+        again : function(musical){
+            musical.more();
+            this.count++;
+            console.log(this.count);
+        }
+    }
+    const angel = {
+        type : '나랑 뮤지컬 같이 봐주는 사람',
+        count : 0,
+        more : function() {
+            this.count++;
+            console.log(this.count);
+        }
+    }
+    me.again(angel);
+
+    let myArr = new Array(1,2,3);
+    let myArr2 = new Array(4,5,6);
+
+    myArr.length;
+    myArr2.length;
+
+    myArr.forEach(item => {
+        console.log(item);
+    });
+    myArr2.forEach(item => {
+        console.log(item);
+    })
+
+    function NewFactory(name){
+        this.name = name;
+        this.sayYourName = function(){
+            console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        }
+    }
+    const robot2 = new NewFactory();
+    function NewFactory2(name){
+        this.name = name;
+    }
+
+    NewFactory2.prototype.sayYourName = function(){
+        console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+    }
+
+    function Me(){
+        this.name = '한재현';
+        this.address = '제주도 제주시 인다 1길';
+        this.phoneNum = '010-8000-0000';
+    }
+    Me.prototype.canWalk = function(){
+        console.log('재현이가 걷는다.');
+    } ;
+    Me.prototype.teaching = function(student){
+        student.levelUp();
+    };
+
+    function Ormi(){
+        this.level = 1;
+    }
+    Ormi.prototype.levelUp = function(){
+        this.level++;
+    };
+
+    class Me{
+        constructor() {
+            this.name = '한재현';
+            this.address = '제주도 제주시 인다 1길';
+            this.phoneNum = '010-8000-0000';
+        }
+
+        canWalk(){
+            console.log('재현이가 걷는다.');
+        }
+
+        teaching(student){
+            student.levelUp();
+        }
+    }
+
+    class Ormi{
+        constructor() {
+            this.level = 1;
+        }
+
+        levelUp(){
+            this.level++;
+        }
+    }
+</script>
+</body>
+</html>

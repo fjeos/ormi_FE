@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const person = {
+        name: '재현',
+        age: 20,
+        gender: 'male'
+    };
+
+    for (let key in person) {
+        console.log(`${key}: ${person[key]}`);
+    }
+
+    const aespa = {
+        members: ['카리나', '윈터', '지젤', '닝닝'],
+        from: '광야',
+        sing: function(){
+            return "적대적인 고난과 슬픔은 널 더 popping 진화시켜!"
+        }
+    };
+
+    console.log(aespa.hasOwnProperty('itzy'));
+    console.log(aespa.hasOwnProperty('from'));
+
+    console.log(Object.keys(aespa));
+    console.log(Object.values(aespa));
+
+</script>
+</body>
+</html>
