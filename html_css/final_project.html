@@ -18,13 +18,13 @@
             justify-content: space-between;
         }
         header img{
-            margin: 31px 0 31px 320px;
+            margin: 30px 0 30px 230px;
         }
         header div{
             display: flex;
             flex-wrap: wrap;
             gap: 0 30px;
-            margin: 41px 320px 41px 0;
+            margin: 40px 250px 40px 0;
         }
         .download{
             width: 140px;
@@ -35,15 +35,17 @@
             background-color: #D97652;
         }
         main{
+            padding: 0 150px;
             display: flex;
             background-color: #F2E9D8;
             align-items: center;
             justify-content: space-evenly;
         }
         main div{
+            height: 50vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-evenly;
 
         }
         #main-title{
@@ -51,19 +53,19 @@
             font-weight: bold;
             font-size: 48px;
         }
-        #explain{
-            margin: 0;
-        }
         #box-cat{
             width: auto;
             height: auto;
             max-width: 415px;
-            max-height: 766px;
+            max-height: 700px;
+        }
+        article{
+            padding: 150px;
         }
         .top{
             margin-top: 50px;
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
         }
         .top-text{
             display: flex;
@@ -101,29 +103,99 @@
             font-size: 24px;
             margin-bottom: 28px;
         }
+        hr{
+            border: 0;
+            margin: 50px 0;
+            height: 1px;
+            background: #C4C4C4;
+        }
         .contact{
+            padding: 110px;
             display: flex;
             flex-direction: column;
-            margin: 0 320px;
+            flex-wrap: wrap;
+            align-content: space-around;
         }
         #address{
+            margin-top: 20px;
+            margin-bottom: 48px;
             font-weight: 500;
             font-size: 16px;
             color: #606367;
+        }
+        #map{
+            width: 100%;
+            height: 520px;
+            border: 0;
+            border-radius: 12px;
         }
         form{
             border-radius: 30px;
             background-color: #263140;
             color: white;
             display: flex;
-            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 80px;
+        }
+        #subscribe > p:nth-child(1){
+            margin: 40px;
+            font-weight: bold;
+            font-size: 36px;
+        }
+        #subscribe> p:nth-child(2){
+            margin: 40px;
+            font-size: 14px;
         }
         label{
-
+            position: relative;
         }
-        input{
-            height: 60px;
+        input {
+            width: 450px;
+            height: 55px;
             border-radius: 60px;
+            background-image: url("img/email-icon.svg");
+            background-repeat: no-repeat;
+            background-position: 10px;
+            padding-left: 40px;
+            color: #767676;
+        }
+        label > button{
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+        .modal{
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+        }
+        .modal_popup{
+            position: absolute;
+            width: 600px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("img/modal.svg");
+            border-radius: 30px;
+            filter: drop-shadow(0 0 30px rgb(0, 0, 0, 0.2));
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+        #thanks{
+            font-weight: bold;
+            font-size: 36px;
+            color: #D97652;
         }
         #back-img{
             height: 300px;
@@ -154,7 +226,8 @@
 </head>
 <body>
     <header>
-        <img alt="로고 이미지" src="img/Logo.svg">
+        <a href="">
+            <img alt="로고 이미지" src="img/Logo.svg"></a>
         <div>
             <p>Home</p>
             <p>About</p>
@@ -208,21 +281,76 @@
             <span>Continue exploring HODU</span>
             <button class="download">Show more</button>
         </div>
-        <hr size="1" align="center" color="#C4C4C4"/>
         <div class="contact">
+            <hr/>
             <span style="font-weight: bold; font-size: 36px;">Where you'll be</span>
             <span id="address">330, Cheomdan-ro, Jeju-si, Jeju-do, Republic of Korea</span>
-            <img alt="임시 지도 이미지" src="img/map_temp.svg">
-            <form method="post">
-                <p>Subscribe to our Blog post</p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
-                    Lorem Ipsum has been the industry's standard dummy text </p>
+            <div id="map">
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=23e76c0cb98a41dd6ad2c9afef2af0df"></script>
+                <script>
+                    const container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+                    const options = { //지도를 생성할 때 필요한 기본 옵션
+                        center: new kakao.maps.LatLng(33.442427, 126.571476), //지도의 중심좌표.
+                        level: 3 //지도의 레벨(확대, 축소 정도)
+                    };
 
+                    const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+                    // 마커가 표시될 위치입니다
+                    const markerPosition  = options.center;
+
+                    // 마커를 생성합니다
+                    const marker = new kakao.maps.Marker({
+                        position: markerPosition
+                    });
+
+                    // 마커가 지도 위에 표시되도록 설정합니다
+                    marker.setMap(map);
+
+                    // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+                    function setMapType(maptype) {
+                        const roadmapControl = document.getElementById('btnRoadmap');
+                        const skyviewControl = document.getElementById('btnSkyview');
+                        if (maptype === 'roadmap') {
+                            map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
+                            roadmapControl.className = 'selected_btn';
+                            skyviewControl.className = 'btn';
+                        } else {
+                            map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);
+                            skyviewControl.className = 'selected_btn';
+                            roadmapControl.className = 'btn';
+                        }
+                    }
+
+                    // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+                    function zoomIn() {
+                        map.setLevel(map.getLevel() - 1);
+                    }
+
+                    // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+                    function zoomOut() {
+                        map.setLevel(map.getLevel() + 1);
+                    }
+                </script>
+            </div>
+<!--            <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.2671271478307!2d126.56887451183566!3d33.442346373281715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350cfdb22ad3cce3%3A0x1321aebb880d1b1!2z7KCc7KO87Yq567OE7J6Q7LmY64-EIOygnOyjvOyLnCDssqjri6jroZwgMzMw!5e0!3m2!1sko!2skr!4v1716278789509!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+            <form method="post">
+                <div id="subscribe">
+                    <p>Subscribe to our Blog post</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+                        Lorem Ipsum has been the industry's standard dummy text </p>
+                </div>
+                <div class="modal">
+                    <div class="modal_popup">
+                        <img alt="볼빨간 호두" src="img/cat1.svg">
+                        <span id="thanks">Thank you!</span>
+                        <span>Lorem Ipsum is simply dummy text of the printing industry.</span>
+                        <button id="close-modal" class="download">OK! I Love HODU</button>
+                    </div>
+                </div>
                 <label>
-                    구독받을 이메일 주소
                     <input type="email" value="Enter your e-mail address">
+                    <button id="open-modal" class="download">Subscribe</button>
                 </label>
-                <button class="download">Subscribe</button>
             </form>
         </div>
     </article>
@@ -230,7 +358,8 @@
     <div id="back-img"></div>
 <!--    <img alt="" src="img/bottom-img.svg" style="object-fit: contain">-->
     <footer>
-        <img alt="로고 이미지" src="img/Logo.svg" id="logo">
+        <a href="">
+            <img alt="로고 이미지" src="img/Logo.svg" id="logo"></a>
         <div>
             <a href="" target="_blank">
                 <img alt="블로그 바로가기" src="img/blog-icon.svg"></a>
@@ -242,5 +371,17 @@
                 <img alt="유튜브 바로가기" src="img/icon-youtube.svg"></a>
         </div>
     </footer>
+    <script>
+        const modal = document.querySelector('.modal');
+        const subscribe = document.querySelector('#open-modal');
+        subscribe.addEventListener("click", () => {
+            modal.style.display="block";
+        });
+
+        const close = document.querySelector('#close-modal');
+        close.addEventListener("click", () => {
+            modal.style.display="none";
+        });
+    </script>
 </body>
 </html>
