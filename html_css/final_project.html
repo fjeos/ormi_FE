@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HODU</title>
     <style>
+        /*html{*/
+        /*    scroll-behavior: smooth;*/
+        /*}*/
         body{
             margin: 0;
             width: 100%;
@@ -60,7 +63,7 @@
             max-height: 700px;
         }
         article{
-            padding: 150px;
+            padding: 150px 150px 0 150px;
         }
         .top{
             margin-top: 50px;
@@ -110,11 +113,15 @@
             background: #C4C4C4;
         }
         .contact{
-            padding: 110px;
+            padding: 110px 110px 0 110px;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             align-content: space-around;
+        }
+        .contact > span{
+            font-weight: bold;
+            font-size: 36px;
         }
         #address{
             margin-top: 20px;
@@ -137,6 +144,7 @@
             justify-content: space-around;
             align-items: center;
             margin-top: 80px;
+            padding: 20px;
         }
         #subscribe > p:nth-child(1){
             margin: 40px;
@@ -197,11 +205,26 @@
             font-size: 36px;
             color: #D97652;
         }
+        .modal_popup > span{
+            margin: 5px;
+        }
+        #close-modal{
+            margin-top: 15px;
+        }
+        #footer-img{
+            position: relative;
+        }
         #back-img{
+            position: absolute;
+            z-index: -1;
             height: 300px;
-            /*background-position: 350px -1108px;*/
-            background-color: rgb(242, 233, 216, 0.6);
-            background-image: url("img/bottom-img.svg");
+            width: 100%;
+            top: -130px;
+        }
+        #hover{
+            position: absolute;
+            right: 15px;
+            top: 100px;
         }
         footer{
             display: flex;
@@ -211,6 +234,9 @@
         #logo{
             height: 50px;
             margin: 45px 0 45px 320px;
+        }
+        footer{
+            margin-top: 180px;
         }
         footer div{
             display: flex;
@@ -253,7 +279,7 @@
     </main>
     <article>
         <div class="top">
-            <img alt="침대에 옆으로 누워서 쳐다보는 호두" src="img/image1.png" style="width: 660px; height: 390px;">
+            <img alt="침대에 옆으로 누워서 쳐다보는 호두" src="img/image1.png" style="width: 660px; height: 390px;" class="each-img">
             <div class="top-text">
                 <span style="font-weight: bold; font-size: 36px;">Lorem Ipsum is simply<br>
                     dummy text of the printing<br>
@@ -279,11 +305,11 @@
         </div>
         <div id="more-hodu">
             <span>Continue exploring HODU</span>
-            <button class="download">Show more</button>
+            <button id="show" class="download">Show more</button>
         </div>
         <div class="contact">
             <hr/>
-            <span style="font-weight: bold; font-size: 36px;">Where you'll be</span>
+            <span>Where you'll be</span>
             <span id="address">330, Cheomdan-ro, Jeju-si, Jeju-do, Republic of Korea</span>
             <div id="map">
                 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=23e76c0cb98a41dd6ad2c9afef2af0df"></script>
@@ -306,34 +332,19 @@
                     // 마커가 지도 위에 표시되도록 설정합니다
                     marker.setMap(map);
 
-                    // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
-                    function setMapType(maptype) {
-                        const roadmapControl = document.getElementById('btnRoadmap');
-                        const skyviewControl = document.getElementById('btnSkyview');
-                        if (maptype === 'roadmap') {
-                            map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
-                            roadmapControl.className = 'selected_btn';
-                            skyviewControl.className = 'btn';
-                        } else {
-                            map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);
-                            skyviewControl.className = 'selected_btn';
-                            roadmapControl.className = 'btn';
-                        }
-                    }
+                    // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+                    const mapTypeControl = new kakao.maps.MapTypeControl();
 
-                    // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-                    function zoomIn() {
-                        map.setLevel(map.getLevel() - 1);
-                    }
+                    // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+                    // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+                    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 
-                    // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-                    function zoomOut() {
-                        map.setLevel(map.getLevel() + 1);
-                    }
+                    // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+                    const zoomControl = new kakao.maps.ZoomControl();
+                    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
                 </script>
             </div>
-<!--            <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.2671271478307!2d126.56887451183566!3d33.442346373281715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350cfdb22ad3cce3%3A0x1321aebb880d1b1!2z7KCc7KO87Yq567OE7J6Q7LmY64-EIOygnOyjvOyLnCDssqjri6jroZwgMzMw!5e0!3m2!1sko!2skr!4v1716278789509!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
-            <form method="post">
+            <form>
                 <div id="subscribe">
                     <p>Subscribe to our Blog post</p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
@@ -348,14 +359,56 @@
                     </div>
                 </div>
                 <label>
-                    <input type="email" value="Enter your e-mail address">
-                    <button id="open-modal" class="download">Subscribe</button>
+                    <input type="email" placeholder="Enter your e-mail address" onKeyDown="keyDown()" required>
+                    <button id="open-modal" class="download" type="button">Subscribe</button>
+                    <script>
+                        const modal = document.querySelector('.modal');
+                        const subscribe = document.querySelector('#open-modal');
+                        const email = document.querySelector("input");
+                        const regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+
+                        subscribe.addEventListener("click", (event) => {
+                            event.preventDefault();
+                            if (regex.test(email.value)){
+                                modal.style.display="block";
+                                email.value = null;
+                            }
+                        });
+
+                        const close = document.querySelector('#close-modal');
+                        close.addEventListener("click", (event) => {
+                            event.preventDefault();
+                            modal.style.display="none";
+                        });
+
+                        email.addEventListener("keydown", (event)=> {
+                            if(event.key === 'Enter'){
+                                event.preventDefault();
+                                if (regex.test(email.value)) {
+                                    modal.style.display = "block";
+                                    email.value = null;
+                                }
+                            }
+                        });
+                    </script>
                 </label>
             </form>
         </div>
     </article>
-
-    <div id="back-img"></div>
+    <div id="footer-img">
+        <img id="back-img" alt="" src="img/bottom-img.svg">
+        <a href="#">
+        <img id="hover" alt="페이지 상단으로 올라가기" src="img/hover.svg"></a>
+        <script>
+            const mouse = document.querySelector("#hover");
+            mouse.addEventListener("mouseover", () =>{
+                mouse.setAttribute("src", "img/hover2.svg");
+            });
+            mouse.addEventListener("mouseout", () => {
+                mouse.setAttribute("src", "img/hover.svg");
+            });
+        </script>
+    </div>
 <!--    <img alt="" src="img/bottom-img.svg" style="object-fit: contain">-->
     <footer>
         <a href="">
@@ -371,17 +424,5 @@
                 <img alt="유튜브 바로가기" src="img/icon-youtube.svg"></a>
         </div>
     </footer>
-    <script>
-        const modal = document.querySelector('.modal');
-        const subscribe = document.querySelector('#open-modal');
-        subscribe.addEventListener("click", () => {
-            modal.style.display="block";
-        });
-
-        const close = document.querySelector('#close-modal');
-        close.addEventListener("click", () => {
-            modal.style.display="none";
-        });
-    </script>
 </body>
 </html>
