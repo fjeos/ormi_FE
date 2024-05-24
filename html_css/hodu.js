@@ -1,40 +1,35 @@
 /* picsum에서 이미지를 불러오는 부분
-* limit만큼 호출한 후 show more로 다 출력하고 나면
+* show more을 누를 때마다 limit만큼 호출하고
+* 5번 반복하면
 * "Continue Exploring Hodu" 텍스트와 show more 버튼을 없앰
 */
 const btn = document.querySelector("#show");
-const before = document.querySelector("#more-hodu");
+const before = document.querySelector("ul");
+const text = document.querySelector("#more-hodu")
+let pageToPatch = 1;
+let countMore = 1;
+let count = 1;
 
-const getData = async() => {
+btn.addEventListener("click", () => {fetchImages(pageToPatch += 1)});
+
+async function fetchImages(page){
     try {
-        const response = await fetch("https://picsum.photos/v2/list?page=2&limit=18")
-        const data = await response.json();
-        let index = 0;
+        const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=5`);
 
-        btn.addEventListener("click", () => {
-            let str = '<div class="hodu-img">\n';
-            for(let i = 0; i < 6; i++){
-                if(i === 3){
-                    str += '</div>\n<div class="hodu-img">'
-                }
-                str += '<img alt="" src="'+data[index]['download_url']+'" class="each-img">';
-                str += '\n'
-                index++;
-            }
-            str += '</div>'
-            before.insertAdjacentHTML('beforebegin', str);
-
-            if(index >= data.length){
-                before.style.display="none";
-            }
+        // 제이슨 데이터를 자바스크립트 객체로 파싱
+        const images = await response.json();
+        images.forEach((image) => {
+            before.insertAdjacentHTML('beforeend', `<li><img alt="" src="${image.download_url}" class="each-img"></li>`);
         });
+        countMore += 1;
+        if(countMore === 5){
+            text.style.display="none";
+        }
     }
-    catch (error) {
-        console.log(`error: ${error}`);
+    catch(error) {
+        console.error(`error: ${error}`);
     }
-};
-getData();
-
+}
 
 /* 지도를 그리는 부분
 * 지도 위에 장소를 표시하는 마커와
@@ -84,6 +79,7 @@ function openModal(event){
     if (regex.test(email.value)){
         modal.style.display="block";
         email.value = null;
+        subscribe.disabled = true;
         email.disabled = true;
         // 모달이 닫혔을 때 스크롤을 비활성화 한다.
         document.body.style.cssText = `
@@ -104,6 +100,7 @@ const close = document.querySelector('#close-modal');
 close.addEventListener("click", (event) => {
     event.preventDefault();
     modal.style.display="none";
+    subscribe.disabled = false;
     email.disabled = false;
 
     // 모달이 닫혔을 때 스크롤을 활성화 한다.

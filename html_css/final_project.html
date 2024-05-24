@@ -44,26 +44,21 @@
                     typesetting industry.</span>
             </div>
         </div>
-        <div class="under">
-            <p style="font-weight: bold; font-size: 48px; color: #D97652;">dummy text of the printing and dummy</p>
-            <p >Lorem Ipsum is simply <strong style="color: #D97652;">dummy text</strong> of the printing and typesetting industry.<br>
+            <p id="under-title">dummy text of the printing and dummy</p>
+            <p id="under-explain">Lorem Ipsum is simply <strong style="color: #D97652;">dummy text</strong> of the printing and typesetting industry.<br>
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
-        </div>
-        <div class="hodu-img">
-            <img alt="캣타워에 올라가 있는 호두" src="img/image2.jpg" class="each-img">
-            <img alt="벽을 쳐다보고 있는 호두의 뒷모습" src="img/image3.jpg" class="each-img">
-            <img alt="침대 밑에 앉아서 집사를 쳐다보고 있는 호두" src="img/image4.jpg" class="each-img">
-        </div>
-        <div class="hodu-img">
-            <img alt="동그랗게 커진 눈으로 쳐다보고 있는 호두 얼굴" src="img/image5.jpg" class="each-img">
-            <img alt="집사를 올려다 보고 있는 호두" src="img/image6.jpg" class="each-img">
-            <img alt="하품을 하고 있는 호두" src="img/image7.jpg" class="each-img">
-        </div>
+        <ul class="hodu-img">
+            <li><img alt="캣타워에 올라가 있는 호두" src="img/image2.jpg" class="each-img"></li>
+            <li><img alt="벽을 쳐다보고 있는 호두의 뒷모습" src="img/image3.jpg" class="each-img"></li>
+            <li><img alt="침대 밑에 앉아서 집사를 쳐다보고 있는 호두" src="img/image4.jpg" class="each-img"></li>
+            <li><img alt="동그랗게 커진 눈으로 쳐다보고 있는 호두 얼굴" src="img/image5.jpg" class="each-img"></li>
+            <li><img alt="집사를 올려다 보고 있는 호두" src="img/image6.jpg" class="each-img"></li>
+            <li> <img alt="하품을 하고 있는 호두" src="img/image7.jpg" class="each-img"></li>
+        </ul>
         <div id="more-hodu">
             <span>Continue exploring HODU</span>
             <button id="show" class="btn">Show more</button>
         </div>
-
         <div class="contact">
             <hr/>
             <span>Where you'll be</span>
@@ -78,6 +73,7 @@
                         Lorem Ipsum has been the industry's standard dummy text </p>
                 </div>
                 <div class="modal">
+<!--                    TODO  팝업 마진 뺄지 말지 결정-->
                     <div class="modal_popup">
                         <img alt="볼빨간 호두" src="img/cat1.svg">
                         <span id="thanks">Thank you!</span>
@@ -92,16 +88,15 @@
             </form>
         </div>
     </article>
-    <div id="footer-img">
+    <div id="bottom-img">
         <img id="back-img" alt="" src="img/bottom-img.svg">
         <a href="#">
         <img id="hover" alt="페이지 상단으로 올라가기" src="img/hover.svg"></a>
     </div>
-<!--    <img alt="" src="img/bottom-img.svg" style="object-fit: contain">-->
     <footer>
         <a href="">
             <img alt="로고 이미지" src="img/Logo.svg" id="logo"></a>
-        <div>
+        <div class="footer-icon">
             <a href="" target="_blank">
                 <img alt="블로그 바로가기" src="img/blog-icon.svg"></a>
             <a href="" target="_blank">
