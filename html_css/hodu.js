@@ -5,16 +5,15 @@
 */
 const btn = document.querySelector("#show");
 const before = document.querySelector("ul");
-const text = document.querySelector("#more-hodu")
+const text = document.querySelector(".more-hodu")
 let pageToPatch = 1;
 let countMore = 1;
-let count = 1;
 
 btn.addEventListener("click", () => {fetchImages(pageToPatch += 1)});
 
 async function fetchImages(page){
     try {
-        const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=5`);
+        const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=6`);
 
         // 제이슨 데이터를 자바스크립트 객체로 파싱
         const images = await response.json();
@@ -70,12 +69,13 @@ window.onload = function() {
 /* form의 입력을 제어하는 부분
 * 이메일의 형식을 정규표현식으로 검증하고, 일치하지 않으면 alert로 알려줌
 * 일치하면 모달을 띄우고 input box 비움 */
-const modal = document.querySelector('.modal');
+const modal = document.querySelector('.modal-bg');
 const subscribe = document.querySelector('#open-modal');
 const email = document.querySelector("input");
-const regex = new RegExp('\[a-z0-9\]+@\[a-z\]+\.\[a-z\]{2,3}(\.\[a-z\]{2,3})?');
+const regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 function openModal(event){
     event.preventDefault();
+    console.log(regex.test(email.value));
     if (regex.test(email.value)){
         modal.style.display="block";
         email.value = null;
@@ -122,7 +122,7 @@ email.addEventListener("keydown", (event)=> {
 /* 페이지 상단으로 올라가는 버튼을 구현한 부분
 * 화살표 이미지에 마우스를 올리면 화살표가 진한 이미지로 바뀌고,
 * 내리면 다시 회색 화살표로 바뀜*/
-const mouse = document.querySelector("#hover");
+const mouse = document.querySelector(".hover");
 mouse.addEventListener("mouseover", () =>{
     mouse.setAttribute("src", "img/hover2.svg");
 });

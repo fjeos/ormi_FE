@@ -9,21 +9,23 @@
 <body>
     <header>
         <a href="">
-            <img alt="로고 이미지" src="img/Logo.svg"></a>
-        <div>
-            <a href=""><p>Home</p></a>
-            <a href=""><p>About</p></a>
-            <a href=""><p>Support</p></a>
-            <button class="btn">Download</button>
-        </div>
+            <img alt="로고 이미지" src="img/Logo.svg" class="logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Support</a></li>
+                <li><button class="btn">Download</button></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <div>
-            <p id="main-title">
+        <div class="main-contents">
+            <span class="main-title">
             Lorem Ipsum is simply<br>
                 dummy text of the printing and
-            </p>
-            <p id="explain">
+            </span>
+            <p>
                 Lorem Ipsum is simply dummy text of the printing and<br>
                 typesetting industry.<br>
                 Lorem Ipsum has been the industry's standard dummy text<br>
@@ -31,21 +33,21 @@
             </p>
             <button class="btn">Download</button>
         </div>
-        <img alt="상자를 뒤집어 쓰고 있는 호두" src="img/heading.png" id="box-cat">
+        <img alt="상자를 뒤집어 쓰고 있는 호두" src="img/heading.png" class="box-cat">
     </main>
     <article>
         <div class="top">
             <img alt="침대에 옆으로 누워서 쳐다보는 호두" src="img/image1.png" class="each-img">
             <div class="top-text">
-                <span style="font-weight: bold; font-size: 36px;">Lorem Ipsum is simply<br>
+                <h2>Lorem Ipsum is simply<br>
                     dummy text of the printing<br>
-                    and dummy text</span>
-                <span style="margin-top: 25px;">Lorem Ipsum is simply dummy text of the printing and<br>
+                    and dummy text</h2>
+                <span>Lorem Ipsum is simply dummy text of the printing and<br>
                     typesetting industry.</span>
             </div>
         </div>
-            <p id="under-title">dummy text of the printing and dummy</p>
-            <p id="under-explain">Lorem Ipsum is simply <strong style="color: #D97652;">dummy text</strong> of the printing and typesetting industry.<br>
+            <h2 class="under-title">dummy text of the printing and dummy</h2>
+            <p class="under-explain">Lorem Ipsum is simply <strong>dummy text</strong> of the printing and typesetting industry.<br>
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
         <ul class="hodu-img">
             <li><img alt="캣타워에 올라가 있는 호두" src="img/image2.jpg" class="each-img"></li>
@@ -55,48 +57,51 @@
             <li><img alt="집사를 올려다 보고 있는 호두" src="img/image6.jpg" class="each-img"></li>
             <li> <img alt="하품을 하고 있는 호두" src="img/image7.jpg" class="each-img"></li>
         </ul>
-        <div id="more-hodu">
+        <div class="more-hodu">
             <span>Continue exploring HODU</span>
             <button id="show" class="btn">Show more</button>
         </div>
         <div class="contact">
             <hr/>
             <span>Where you'll be</span>
-            <span id="address">330, Cheomdan-ro, Jeju-si, Jeju-do, Republic of Korea</span>
+            <span class="address">330, Cheomdan-ro, Jeju-si, Jeju-do, Republic of Korea</span>
             <div id="map">
                 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=23e76c0cb98a41dd6ad2c9afef2af0df"></script>
+                <div class="custom_zoomcontrol radius_border">
+                    <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>
+                    <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+                </div>
             </div>
             <form>
-                <div id="subscribe">
+                <div class="suggest-sub">
                     <p>Subscribe to our Blog post</p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
                         Lorem Ipsum has been the industry's standard dummy text </p>
-                </div>
-                <div class="modal">
-<!--                    TODO  팝업 마진 뺄지 말지 결정-->
-                    <div class="modal_popup">
-                        <img alt="볼빨간 호두" src="img/cat1.svg">
-                        <span id="thanks">Thank you!</span>
-                        <span>Lorem Ipsum is simply dummy text of the printing industry.</span>
-                        <button id="close-modal" class="btn">OK! I Love HODU</button>
-                    </div>
                 </div>
                 <label>
                     <input type="email" placeholder="Enter your e-mail address" required>
                     <button id="open-modal" class="btn" type="button">Subscribe</button>
                 </label>
+                <div class="modal-bg">
+                    <div class="modal-popup">
+                        <img alt="볼빨간 호두" src="img/cat1.svg">
+                        <span class="thanks-text">Thank you!</span>
+                        <span>Lorem Ipsum is simply dummy text of the printing industry.</span>
+                        <button id="close-modal" class="btn">OK! I Love HODU</button>
+                    </div>
+                </div>
             </form>
         </div>
     </article>
-    <div id="bottom-img">
-        <img id="back-img" alt="" src="img/bottom-img.svg">
+    <div class="bottom-img">
+        <img class="back-img" alt="" src="img/bottom-img.svg">
         <a href="#">
-        <img id="hover" alt="페이지 상단으로 올라가기" src="img/hover.svg"></a>
+        <img class="hover" alt="페이지 상단으로 올라가기" src="img/hover.svg"></a>
     </div>
     <footer>
         <a href="">
-            <img alt="로고 이미지" src="img/Logo.svg" id="logo"></a>
-        <div class="footer-icon">
+            <img alt="로고 이미지" src="img/Logo.svg" class="logo"></a>
+        <div class="footer-icons">
             <a href="" target="_blank">
                 <img alt="블로그 바로가기" src="img/blog-icon.svg"></a>
             <a href="" target="_blank">

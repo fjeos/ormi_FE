@@ -14,16 +14,18 @@ header{
     justify-content: space-between;
     align-items: flex-end;
 }
-header img{
+.logo{
     margin: 40px 0 40px 260px;
 }
-header div{
+.menu{
     display: flex;
     flex-wrap: wrap;
     gap: 0 30px;
     margin: 40px 250px 40px 0;
+    align-items: center;
+    list-style: none;
 }
-header div a{
+.menu a{
     color: black;
     text-decoration-line: none;
 }
@@ -37,28 +39,28 @@ header div a{
     cursor: pointer;
 }
 .btn:hover{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255,255,255, 0.4));
 }
 main{
-    padding: 0 190px;
+    padding: 0 150px 0 200px;
     display: flex;
     background-color: #F2E9D8;
     align-items: center;
     justify-content: space-evenly;
 }
-main div{
+.main-contents{
     height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 
 }
-#main-title{
+.main-title{
     margin: 0;
     font-weight: bold;
     font-size: 48px;
 }
-#box-cat{
+.box-cat{
     width: auto;
     height: auto;
     max-width: 415px;
@@ -72,6 +74,9 @@ article{
     display: flex;
     justify-content: space-evenly;
 }
+.top h2{
+    font-size: 36px;
+}
 .top img{
     width: 560px;
     height: 330px;
@@ -80,17 +85,18 @@ article{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
 }
-#under-title{
-    font-weight: bold;
+.under-title{
     font-size: 48px;
     color: #D97652;
     text-align: center;
 }
-#under-explain{
+.under-explain{
     text-align: center;
     margin-bottom: 80px;
+}
+.under-explain strong{
+    color: #D97652;
 }
 .hodu-img{
     list-style: none;
@@ -106,14 +112,14 @@ article{
     margin: 50px 50px;
     filter: drop-shadow(10px 10px 30px rgb(0, 0, 0, 0.25));
 }
-#more-hodu{
+.more-hodu{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
 }
-#more-hodu span{
+.more-hodu > span{
     display: block;
     font-weight: bold;
     font-size: 24px;
@@ -132,11 +138,11 @@ hr{
     flex-wrap: wrap;
     align-content: space-around;
 }
-.contact > span{
+.contact > span:nth-child(2){
     font-weight: bold;
     font-size: 36px;
 }
-#address{
+.address{
     margin-top: 20px;
     margin-bottom: 30px;
     font-weight: 500;
@@ -159,12 +165,12 @@ form{
     margin-top: 80px;
     padding: 20px;
 }
-#subscribe > p:nth-child(1){
+.suggest-sub > p:nth-child(1){
     margin: 40px;
     font-weight: bold;
     font-size: 36px;
 }
-#subscribe > p:nth-child(2){
+.suggest-sub > p:nth-child(2){
     margin: 40px;
     font-size: 14px;
 }
@@ -186,7 +192,7 @@ label > button{
     right: 5px;
     top: 5px;
 }
-.modal{
+.modal-bg{
     display: none;
     width: 100%;
     height: 100%;
@@ -196,7 +202,7 @@ label > button{
     background: rgba(0, 0, 0, 0.6);
     z-index: 9;
 }
-.modal_popup{
+.modal-popup{
     position: absolute;
     width: 600px;
     height: 400px;
@@ -213,28 +219,28 @@ label > button{
     align-items: center;
     color: black;
 }
-#thanks{
+.thanks-text{
     font-weight: bold;
     font-size: 36px;
     color: #D97652;
 }
-.modal_popup > span{
+.modal-popup > span{
     margin: 5px;
 }
 #close-modal{
     margin-top: 15px;
 }
-#bottom-img{
+.bottom-img{
     position: relative;
 }
-#back-img{
+.back-img{
     position: absolute;
     z-index: -1;
     height: 300px;
     width: 100%;
     top: -130px;
 }
-#hover{
+.hover{
     position: absolute;
     right: 15px;
     top: 100px;
@@ -244,9 +250,8 @@ footer{
     flex-wrap: wrap;
     justify-content: space-between;
 }
-#logo{
+footer .logo{
     height: 50px;
-    margin: 40px 0 40px 260px;
 }
 footer{
     margin-top: 180px;
